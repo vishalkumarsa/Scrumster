@@ -1,0 +1,6 @@
+.idea/
+ScrumsterService.iml
+bin/
+.classpath
+.project
+target/

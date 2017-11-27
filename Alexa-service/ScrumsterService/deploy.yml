@@ -1,0 +1,12 @@
+---
+- hosts: prod
+  tasks:
+  - name: Upload JAR
+    copy: src=target/ScrumsterService-1.0-SNAPSHOT.jar dest=/home/ec2-user/app.jar
+
+  - name: Upload Dockerfile
+    copy: src=Dockerfile dest=/home/ec2-user/Dockerfile mode=0755
+
+  - name: Deploy Docker container
+    become_user: ec2-user
+    script: deploy.sh
